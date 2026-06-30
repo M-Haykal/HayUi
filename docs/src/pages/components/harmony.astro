@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Showcase from "../../components/Showcase.astro";
+import { Harmony as HarmonyComponent } from "../../../../src/components/Harmony/Harmony";
+import { Typography } from "../../../../src/components/Typography/Typography";
+---
+
+<Layout title="Harmony (Accordion)">
+  <div class="mb-12">
+    <Typography as="h1" variant="display-2" weight="bold" className="mb-4">Harmony</Typography>
+    <Typography variant="body-large" color="muted">
+      Accordion component dengan animasi transisi smooth untuk mengorganisir konten ke dalam section yang bisa di buka/tutup.
+    </Typography>
+  </div>
+
+  <section class="space-y-16">
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Basic Accordion</h2>
+      <Showcase title="Default Harmony" isExample={true}>
+        <HarmonyComponent client:load
+          items={[
+            {
+              title: "Apa itu Harmony Accordion?",
+              children: "Harmony adalah komponen accordion yang dirancang dengan animasi transisi smooth berdurasi 300ms. Setiap item bisa di klik untuk membuka atau menutup konten didalamnya.",
+            },
+            {
+              title: "Bagaimana cara kerjanya?",
+              children: "Secara default hanya satu item yang bisa terbuka pada satu waktu. Ketika kamu klik item lain, item yang terbuka sebelumnya akan otomatis tertutup dengan animasi yang nyaman dilihat.",
+            },
+            {
+              title: "Apakah bisa buka banyak sekaligus?",
+              children: "Tentu bisa! Gunakan prop `allowMultiple={true}` untuk mengizinkan banyak item terbuka secara bersamaan tanpa menutup yang lain.",
+              defaultOpen: true
+            },
+          ]}
+        />
+      </Showcase>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Allow Multiple Open</h2>
+      <Showcase title="Multiple Open Mode" isExample={true}>
+        <HarmonyComponent client:load
+          allowMultiple={true}
+          items={[
+            {
+              title: "Item 1",
+              children: "Kamu bisa membuka item ini dan yang lain secara bersamaan. Tidak ada yang otomatis tertutup.",
+            },
+            {
+              title: "Item 2",
+              children: "Semua item bisa tetap terbuka sampai kamu klik kembali untuk menutupnya secara manual.",
+              defaultOpen: true
+            },
+            {
+              title: "Item 3",
+              children: "Mode ini sangat cocok untuk FAQ atau halaman dokumentasi dimana user ingin melihat banyak informasi sekaligus.",
+              defaultOpen: true
+            },
+          ]}
+        />
+      </Showcase>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Default Open Item</h2>
+      <Showcase title="Pre-opened Item" isExample={true}>
+        <HarmonyComponent client:load
+          items={[
+            {
+              title: "Item ini tertutup secara default",
+              children: "Kamu perlu klik untuk membuka konten ini.",
+            },
+            {
+              title: "Item ini terbuka ketika halaman dimuat",
+              children: "Gunakan `defaultOpen: true` pada item yang ingin terbuka secara otomatis ketika komponen pertama kali dirender.",
+              defaultOpen: true
+            },
+            {
+              title: "Item lain juga bisa di setting default open",
+              children: "Semua item bisa diatur default open jika menggunakan mode allowMultiple.",
+            },
+          ]}
+        />
+      </Showcase>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Usage Example</h2>
+      <Showcase title="Code Implementation">
+        <pre><code>{`import { Harmony } from 'hayui';
+
+const Example = () => {
+  return (
+    <Harmony
+      allowMultiple={false}
+      items={[
+        {
+          title: "Pertanyaan 1",
+          children: "Jawaban dari pertanyaan nomor 1",
+          defaultOpen: true
+        },
+        {
+          title: "Pertanyaan 2",
+          children: "Jawaban dari pertanyaan nomor 2"
+        },
+      ]}
+    />
+  );
+}`}</code></pre>
+      </Showcase>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 border rounded-lg">
+          <h3 class="font-bold mb-2">✅ Animasi Smooth</h3>
+          <p class="text-sm text-neutral-600">Transisi height dan opacity dengan timing function ease-in-out selama 300ms</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <h3 class="font-bold mb-2">✅ Rotate Icon Animation</h3>
+          <p class="text-sm text-neutral-600">Icon panah berotasi 180 derajat ketika item dibuka dengan animasi</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <h3 class="font-bold mb-2">✅ Single & Multiple Mode</h3>
+          <p class="text-sm text-neutral-600">Pilih antara mode single open atau multiple open sesuai kebutuhan</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <h3 class="font-bold mb-2">✅ Keyboard Accessible</h3>
+          <p class="text-sm text-neutral-600">Semua tombol bisa diakses dan dioperasikan menggunakan keyboard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

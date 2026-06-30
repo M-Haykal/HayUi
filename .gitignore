@@ -1,0 +1,9 @@
+node_modules
+.env
+dist
+coverage
+.cache
+jest
+/docs/node_modules
+/docs/dist
+dist

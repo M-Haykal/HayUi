@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Orbit (Tabs)">
+  <div class="mb-10">
+    <h1 class="text-3xl font-bold text-neutral-900 mb-2">Orbit</h1>
+    <p class="text-neutral-600">Tabbed navigation for switching between views.</p>
+  </div>
+
+  <section class="space-y-12">
+    <div>
+      <h2 class="text-xl font-bold text-neutral-900 mb-4">Usage</h2>
+      <div class="bg-neutral-900 rounded-lg p-6">
+        <pre class="text-neutral-400"><code>import &#123; Orbit &#125; from 'hayui';
+
+const tabs = [
+  &#123; value: 'tab1', label: 'Overview', content: &lt;p&gt;This is tab 1&lt;/p&gt; &#125;,
+  &#123; value: 'tab2', label: 'Settings', content: &lt;p&gt;This is tab 2&lt;/p&gt; &#125;,
+];
+
+&lt;Orbit tabs=&#123;tabs&#125; variant="underline" /&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+</Layout>

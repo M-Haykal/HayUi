@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Showcase from "../../components/Showcase.astro";
+import { Flame as FlameComponent } from "../../../../src/components/Flame/Flame";
+import { Typography } from "../../../../src/components/Typography/Typography";
+---
+
+<Layout title="Flame (Alert)">
+  <div class="mb-12">
+    <Typography as="h1" variant="display-2" weight="bold" className="mb-4">Flame</Typography>
+    <Typography variant="body-large" color="muted">
+      Communicate important messages and feedback to users with distinct visual cues.
+    </Typography>
+  </div>
+
+  <section class="space-y-16">
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Feedback Types</h2>
+      <Showcase title="Alert Preview" isExample={true}>
+        <div class="space-y-4 w-full max-w-2xl px-8 py-4">
+          <FlameComponent type="info" title="Informational" closeable={true}>
+            This is a system notification about minor changes in the interface.
+          </FlameComponent>
+          <FlameComponent type="success" title="Success" closeable={true}>
+            Your profile has been successfully updated and saved.
+          </FlameComponent>
+          <FlameComponent type="warning" title="Warning" closeable={true}>
+            Your subscription will expire in 3 days. Please renew soon.
+          </FlameComponent>
+          <FlameComponent type="error" title="Critical Error" closeable={true}>
+            We were unable to process your request. Please try again later.
+          </FlameComponent>
+        </div>
+      </Showcase>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-6">Usage</h2>
+      <Showcase title="Implementation">
+        <pre><code>{`import { Flame } from 'hayui';
+
+<Flame 
+  type="success" 
+  title="Payment Received" 
+  closeable={true}
+>
+  Thank you for your purchase. We've sent a receipt to your email.
+</Flame>`}</code></pre>
+      </Showcase>
+    </div>
+  </section>
+</Layout>
